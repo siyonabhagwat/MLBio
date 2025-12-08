@@ -1,13 +1,15 @@
 import pandas as pd
 from pathlib import Path
 
-# Set data directory to user's actual location
-DATA_DIR = Path("/Users/siyonabhagwat/Downloads/brca_tcga")
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # === File paths (EDIT THESE if needed) ===
+DATA_DIR = Path(os.getenv("DATA_FOLDER"))
 PATH_MUTSIG = DATA_DIR / "data_mutsig.txt"                 # gene-level MutSig summary
-PATH_MUTATIONS = DATA_DIR / .txt"  # per-mutation file (MAF-like)
-PATH_CASES_COMPLETE = DATA_DIR / "cases_complete.txt"      # list of complete samples
+PATH_MUTATIONS = DATA_DIR / "data_mutations.txt"  # per-mutation file (MAF-like)
+PATH_CASES_COMPLETE = DATA_DIR / "case_lists/cases_complete.txt"      # list of complete samples
 OUTPUT_MASTER_TABLE = DATA_DIR / "sample_master_table.csv"
 
 # Load MutSig summary
