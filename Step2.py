@@ -4,7 +4,6 @@ import numpy as np
 from scipy import stats
 from pathlib import Path
 import matplotlib.pyplot as plt
-# DATA_DIR = Path("/Users/siyonabhagwat/Downloads/brca_tcga")
 from dotenv import load_dotenv
 load_dotenv()
 # === File paths (EDIT THESE if needed) ===
