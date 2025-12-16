@@ -4,7 +4,11 @@ import numpy as np
 from scipy import stats
 from pathlib import Path
 import matplotlib.pyplot as plt
-DATA_DIR = Path("/Users/siyonabhagwat/Downloads/brca_tcga")
+# DATA_DIR = Path("/Users/siyonabhagwat/Downloads/brca_tcga")
+from dotenv import load_dotenv
+load_dotenv()
+# === File paths (EDIT THESE if needed) ===
+DATA_DIR = Path(os.getenv("DATA_FOLDER"))
 
 # === FILE PATHS (EDIT THESE IF NEEDED) ===
 PATH_MASTER = DATA_DIR /"sample_master_table.csv"          # from Step 1
