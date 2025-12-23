@@ -20,7 +20,7 @@ load_dotenv()
 DATA_DIR = Path(os.getenv("DATA_FOLDER"))  # you set this in your .env
 PATH_MASTER = DATA_DIR / "sample_master_table.csv"         # from Step 1
 PATH_CASELIST_RNASEQ = DATA_DIR / "case_lists/cases_RNA_Seq_v2_mRNA.txt"
-PATH_RNASEQ_MATRIX = DATA_DIR / "data_RNA_Seq_v2_mRNA.txt" # numeric matrix
+PATH_RNASEQ_MATRIX = DATA_DIR / "data_mrna_seq_v2_rsem.txt" # numeric matrix
 OUTDIR = DATA_DIR / "step2_rna_out"
 OUTDIR.mkdir(parents=True, exist_ok=True)
 
@@ -76,9 +76,6 @@ if STATUS_COL not in master.columns:
 
 print("2B) Master rows:", len(master))
 print("    Mut/WT counts:", master[STATUS_COL].value_counts(dropna=False).to_dict())
-
-
-# we are here
 
 
 # ==========================================
