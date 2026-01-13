@@ -113,5 +113,6 @@ for protein in tp53_proteins:
         stat, p = mannwhitneyu(mut_vals, wt_vals)
         tp53_results.append((protein, p))
 
-pd.DataFrame(tp53_results, columns=["Protein", "p_value"]) 
+pd.DataFrame(tp53_results, columns=["Protein", "p_value"])
+
 
