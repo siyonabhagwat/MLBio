@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import mannwhitneyu
 # === File paths (EDIT if needed) ===
-PATH_MASTER = "sample_master_table.csv"
+PATH_MASTER = "sample_master_table"
 PATH_RPPA = "data_rppa_zscores.txt"
 PATH_CASELIST_RPPA = "cases_rppa.txt"
 master = pd.read_csv(PATH_MASTER)
