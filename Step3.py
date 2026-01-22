@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import mannwhitneyu
 # === File paths (EDIT if needed) ===
-PATH_MASTER = "sample_master_table.csv"
+PATH_MASTER = "sample_master_table"
 PATH_RPPA = "data_rppa_zscores.txt"
 PATH_CASELIST_RPPA = "cases_rppa.txt"
 master = pd.read_csv(PATH_MASTER)
@@ -111,7 +111,7 @@ for protein in tp53_proteins:
 
     if len(mut_vals) > 5 and len(wt_vals) > 5:
         stat, p = mannwhitneyu(mut_vals, wt_vals)
-        tp53_results.append((protein, p))
+        tp53_results.append((protein, p)) "sample_master_table" 
 
 pd.DataFrame(tp53_results, columns=["Protein", "p_value"])
 
