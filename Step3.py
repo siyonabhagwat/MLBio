@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import mannwhitneyu
 # === File paths (EDIT if needed) ===
+DATA_FOLDER = "/Users/siyonabhagwat/Downloads/brca_tcga" 
 PATH_MASTER = "sample_master_table"
 PATH_RPPA = "data_rppa_zscores.txt"
 PATH_CASELIST_RPPA = "cases_rppa.txt"
-DATA_FOLDER = "/Users/siyonabhagwat/Downloads/brca_tcga"
 master = pd.read_csv(PATH_MASTER)
 print("Master table shape:", master.shape)
 master.head()
