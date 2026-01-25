@@ -5,9 +5,9 @@ import seaborn as sns
 from scipy.stats import mannwhitneyu
 # === File paths (EDIT if needed) ===
 DATA_FOLDER = "/Users/siyonabhagwat/Downloads/brca_tcga" 
-PATH_MASTER = "sample_master_table.csv"
 PATH_RPPA = "data_rppa_zscores.txt"
 PATH_CASELIST_RPPA = "cases_rppa.txt"
+PATH_MASTER = "sample_master_table.csv"
 master = pd.read_csv(PATH_MASTER)
 print("Master table shape:", master.shape)
 master.head()
