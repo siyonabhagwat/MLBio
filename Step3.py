@@ -14,9 +14,9 @@ PATH_MUTSIG = DATA_DIR / "data_mutsig.txt"                 # gene-level MutSig s
 PATH_MUTATIONS = DATA_DIR / "data_mutations.txt"  # per-mutation file (MAF-like)
 PATH_CASES_COMPLETE = DATA_DIR / "case_lists/cases_complete.txt"      # list of complete samples
 OUTPUT_MASTER_TABLE = DATA_DIR / "sample_master_table.csv"
-PATH_RPPA = "data_rppa_zscores.txt"
-PATH_CASELIST_RPPA = "cases_rppa.txt"
-PATH_MASTER = "sample_master_table.csv"
+PATH_RPPA = DATA_DIR / "data_rppa_zscores.txt"
+PATH_CASELIST_RPPA = DATA_DIR / "case_lists/cases_rppa.txt"
+PATH_MASTER = DATA_DIR / "sample_master_table.csv"
 master = pd.read_csv(PATH_MASTER)
 print("Master table shape:", master.shape)
 master.head()
