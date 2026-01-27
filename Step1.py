@@ -2,7 +2,8 @@ import pandas as pd
 from pathlib import Path
 
 import os
-from .env import load_dotenv
+from dotenv import load_dotenv
+load_dotenv()
 
 # === File paths (EDIT THESE if needed) ===
 DATA_DIR = Path(os.getenv("DATA_FOLDER"))
