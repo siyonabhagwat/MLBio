@@ -61,14 +61,7 @@ merged_rppa.head()
 gene = "PIK3CA"
 status_col = "PIK3CA_status"
 
-pi3k_proteins = [
-    "AKT",
-    "AKT_pS473",
-    "S6",
-    "S6_pS235_S236",
-    "4EBP1",
-    "4EBP1_pT37_T46"
-]
+pi3k_proteins = rppa['Composite.Element.REF'].tolist()
 results = []
 
 for protein in pi3k_proteins:
@@ -89,7 +82,7 @@ pd.DataFrame(
     results,
     columns=["Protein", "N_Mut", "N_WT", "p_value"]
 ).sort_values("p_value")
-protein_to_plot = "AKT_pS473"
+protein_to_plot = pi3k_proteins[0]
 
 plot_df = merged_rppa[[protein_to_plot, status_col]].dropna()
 
@@ -104,25 +97,3 @@ plt.title(f"{protein_to_plot}: {gene}-Mut vs WT")
 plt.ylabel("RPPA Z-score")
 plt.xlabel("")
 plt.show()
-gene = "TP53"
-status_col = "TP53_status"
-
-tp53_proteins = ["TP53", "BAX", "CDKN1A", "CyclinB1"]
-
-tp53_results = []
-
-for protein in tp53_proteins:
-    if protein not in merged_rppa.columns:
-        continue
-
-    temp = merged_rppa[[protein, status_col]].dropna()
-    mut_vals = temp[temp[status_col]=="Mut"][protein]
-    wt_vals  = temp[temp[status_col]=="WT"][protein]
-
-    if len(mut_vals) > 5 and len(wt_vals) > 5:
-        stat, p = mannwhitneyu(mut_vals, wt_vals)
-        tp53_results.append((protein, p))
-
-pd.DataFrame(tp53_results, columns=["Protein", "p_value"])
-
-
