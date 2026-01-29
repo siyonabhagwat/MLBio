@@ -19,4 +19,16 @@ master = pd.read_csv(PATH_MASTER)
 
 print("Master table shape:", master.shape)
 master.head()
+clinical = pd.read_csv(PATH_CLINICAL, sep="\t")
+
+print("Clinical table shape:", clinical.shape)
+clinical.head()
+merged_clinical = master.merge(
+    clinical,
+    on="PATIENT_ID",
+    how="inner"
+)
+
+print("Merged clinical shape:", merged_clinical.shape)
+merged_clinical.head()
 
