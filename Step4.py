@@ -77,4 +77,40 @@ surv_df["EVENT"] = surv_df["OS_STATUS"].map({
     "DECEASED": 1,
     "LIVING": 0
 })
+kmf = KaplanMeierFitter()
+
+plt.figure(figsize=(6,4))
+
+for label, grp in surv_df.groupby(status_col):
+    kmf.fit(
+        durations=grp["OS_MONTHS"],
+        event_observed=grp["EVENT"],
+        label=label
+    )
+    kmf.plot_survival_function()
+
+plt.title(f"Overall survival by {gene} mutation status")
+plt.xlabel("Months")
+plt.ylabel("Survival probability")
+plt.show()
+mut = surv_df[surv_df[status_col] == "Mut"]
+wt  = surv_df[surv_df[status_col] == "WT"]
+
+lr = logrank_test(
+    mut["OS_MONTHS"],
+    wt["OS_MONTHS"],
+    event_observed_A=mut["EVENT"],
+    event_observed_B=wt["EVENT"]
+)
+
+print("Log-rank p-value:", lr.p_value)
+summary = {
+    "Gene": gene,
+    "N_mut": (merged_clinical[status_col] == "Mut").sum(),
+    "N_WT": (merged_clinical[status_col] == "WT").sum(),
+    "ER_assoc_p": p,
+    "OS_logrank_p": lr.p_value
+}
+
+summary
 
