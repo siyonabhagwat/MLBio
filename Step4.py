@@ -6,6 +6,7 @@ import seaborn as sns
 from scipy.stats import chi2_contingency
 from lifelines import KaplanMeierFitter
 from lifelines.statistics import logrank_test
+from pathlib import Path
 import os
 from dotenv import load_dotenv
 load_dotenv()
