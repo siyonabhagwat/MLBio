@@ -19,7 +19,7 @@ master = pd.read_csv(PATH_MASTER)
 
 print("Master table shape:", master.shape)
 master.head()
-clinical = pd.read_csv(PATH_CLINICAL, sep="\t")
+clinical = pd.read_csv(PATH_CLINICAL, sep="\t", comment="#")
 
 print("Clinical table shape:", clinical.shape)
 clinical.head()
@@ -33,7 +33,7 @@ print("Merged clinical shape:", merged_clinical.shape)
 merged_clinical.head()
 gene = "PIK3CA"
 status_col = "PIK3CA_status"
-receptor_col = "ER_STATUS"
+receptor_col = "ER_STATUS_BY_IHC"
 # Build contingency table
 ct = pd.crosstab(
     merged_clinical[status_col],
@@ -69,13 +69,19 @@ plt.show()
 # Clean survival columns
 surv_df = merged_clinical[
     [status_col, "OS_MONTHS", "OS_STATUS"]
-].dropna()
+].copy()
+
+# Coerce invalid OS_MONTHS values (e.g., "[Not Available]") to NaN
+surv_df["OS_MONTHS"] = pd.to_numeric(surv_df["OS_MONTHS"], errors="coerce")
+
+# Drop rows with missing survival data
+surv_df = surv_df.dropna(subset=["OS_MONTHS", "OS_STATUS"])
 
 # Convert OS_STATUS to binary
 # Common format: "DECEASED" / "LIVING"
 surv_df["EVENT"] = surv_df["OS_STATUS"].map({
-    "DECEASED": 1,
-    "LIVING": 0
+    "1:DECEASED": 1,
+    "0:LIVING": 0
 })
 kmf = KaplanMeierFitter()
 
