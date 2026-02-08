@@ -24,8 +24,8 @@ PATH_RNASEQ_MATRIX = DATA_DIR / "data_mrna_seq_v2_rsem.txt" # numeric matrix
 OUTDIR = DATA_DIR / "step2_rna_out"
 OUTDIR.mkdir(parents=True, exist_ok=True)
 
-GENE = "AKT1"                 # debug one gene first
-STATUS_COL = f"{GENE}_status"   # expects "AKT1_status" in master table
+GENE = "TP53"                 # debug one gene first
+STATUS_COL = f"{GENE}_status"   # expects "TP53_status" in master table
 
 # Optional: genes to check beyond the gene itself
 PATHWAY_GENES = ["PIK3CA", "AKT1", "PDPK1", "MTOR", "RPS6KB1", "EIF4EBP1"]

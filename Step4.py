@@ -31,8 +31,8 @@ merged_clinical = master.merge(
 
 print("Merged clinical shape:", merged_clinical.shape)
 merged_clinical.head()
-gene = "PIK3CA"
-status_col = "PIK3CA_status"
+gene = "TP53"
+status_col = "TP53_status"
 receptor_col = "ER_STATUS_BY_IHC"
 # Build contingency table
 ct = pd.crosstab(

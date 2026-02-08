@@ -58,8 +58,8 @@ merged_rppa = rppa_t.merge(master, on="SAMPLE_ID")
 
 print("Merged RPPA + mutation shape:", merged_rppa.shape)
 merged_rppa.head()
-gene = "PIK3CA"
-status_col = "PIK3CA_status"
+gene = "TP53"
+status_col = "TP53_status"
 
 pi3k_proteins = rppa['Composite.Element.REF'].tolist()
 results = []
