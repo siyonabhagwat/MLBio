@@ -23,7 +23,7 @@ mutsig_sorted = mutsig.sort_values("q").head(20)
 print(mutsig_sorted[["gene", "npat", "q"]])
 
 # === Choose genes manually after inspecting ===
-chosen_genes = ["PIK3CA", "TP53", "GATA3"]  # EDIT if you pick different ones
+chosen_genes = ["GATA3", "NCOR1"]  # EDIT if you pick different ones
 print("Chosen genes:", chosen_genes)
 # Load per-mutation file (MAF-like)
 mut = pd.read_csv(PATH_MUTATIONS, sep="\t")

@@ -28,7 +28,7 @@ GENE = "GATA3"                 # debug one gene first
 STATUS_COL = f"{GENE}_status"   # expects "GATA3_status" in master table
 
 # Optional: genes to check beyond the gene itself
-PATHWAY_GENES = ["PIK3CA", "AKT1", "PDPK1", "MTOR", "RPS6KB1", "EIF4EBP1"]
+PATHWAY_GENES = ["PIK3CA", "AKT1", "PDPK1", "MTOR", "RPS6KB1", "EIF4EBP1", "NCOR1"]
 
 # If your IDs are TCGA-like and you see mismatches, set to True (truncates to 15 chars)
 USE_TCGA_15 = False
