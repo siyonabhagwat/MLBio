@@ -116,8 +116,8 @@ def main() -> None:
     rppa = load_rppa_matrix(paths["PATH_RPPA"])
     merged_rppa = build_rppa_merged(rppa, rppa_ids, master)
 
-    gene = "NCOR1"
-    status_col = "NCOR1_status"
+    gene = "ZFP36L2"
+    status_col = "ZFP36L2_status"
     pi3k_proteins = rppa["Composite.Element.REF"].tolist()
 
     results = test_proteins(merged_rppa, pi3k_proteins, status_col)

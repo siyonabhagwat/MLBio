@@ -25,7 +25,7 @@ def inspect_mutsig(path_mutsig: Path) -> pd.DataFrame:
 
 
 def choose_genes() -> list[str]:
-    return ["GATA3", "NCOR1", "GPS2"] 
+    return ["GATA3", "NCOR1", "GPS2", "ZFP36L2"] 
 
 
 def load_mutations(path_mutations: Path) -> pd.DataFrame:
