@@ -15,7 +15,7 @@ def get_config() -> dict:
     data_dir = Path(os.getenv("DATA_FOLDER"))
     outdir = data_dir / "step2_rna_out"
     outdir.mkdir(parents=True, exist_ok=True)
-    gene = "GATA3"
+    gene = "NCOR1"
     return {
         "DATA_DIR": data_dir,
         "PATH_MASTER": data_dir / "sample_master_table.csv",
