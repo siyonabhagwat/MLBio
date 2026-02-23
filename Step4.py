@@ -145,8 +145,8 @@ def main() -> None:
     clinical = load_clinical(paths["PATH_CLINICAL"])
     merged_clinical = merge_clinical(master, clinical)
 
-    gene = "CTCF"
-    status_col = "CTCF_status"
+    gene = "ASXL2"
+    status_col = "ASXL2_status"
     receptor_col = "ER_STATUS_BY_IHC"
     stage_col = "AJCC_PATHOLOGIC_TUMOR_STAGE"
 
