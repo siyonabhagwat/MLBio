@@ -56,7 +56,8 @@ def analyze_receptor_association(
     plt.ylabel("Proportion")
     plt.xlabel("Mutation status")
     plt.legend(title="ER status")
-    plt.show()
+    plt.savefig(f"pictures(gene)_ER_status.png",pad_inches=0)
+    plt.close()
     return p
 
 
@@ -73,7 +74,8 @@ def plot_stage_distribution(
     sns.countplot(data=stage_df, x=stage_col, hue=status_col)
     plt.xticks(rotation=45)
     plt.title(f"Tumor stage by {gene} mutation status")
-    plt.show()
+    #plt.show()
+    plt.close()
 
 
 def build_survival_df(merged_clinical: pd.DataFrame, status_col: str) -> pd.DataFrame:
@@ -103,9 +105,8 @@ def plot_km_curves(surv_df: pd.DataFrame, status_col: str, gene: str) -> None:
     plt.title(f"Overall survival by {gene} mutation status")
     plt.xlabel("Months")
     plt.ylabel("Survival probability")
-    plt.show()
-
-
+    plt.savefig(f"pictures/{gene}_km_curve.png", pad_inches=0.)
+    plt.close()
 def run_logrank_test(surv_df: pd.DataFrame, status_col: str) -> float:
     mut = surv_df[surv_df[status_col] == "Mut"]
     wt = surv_df[surv_df[status_col] == "WT"]
