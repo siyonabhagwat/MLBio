@@ -56,7 +56,7 @@ def analyze_receptor_association(
     plt.ylabel("Proportion")
     plt.xlabel("Mutation status")
     plt.legend(title="ER status")
-    plt.savefig(f"pictures(gene)_ER_status.png",pad_inches=0)
+    plt.savefig(f"pictures/{gene}_ER_status.png",pad_inches=0)
     plt.close()
     return p
 
